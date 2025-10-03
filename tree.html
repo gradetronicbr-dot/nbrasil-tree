@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NBrasilWiki</title>
+  <style>
+    :root {
+      --bg1: #ff6b6b;
+      --bg2: #e60012; 
+      --bg3: #7f0000;
+      --card-bg: rgba(255,255,255,0.06);
+      --glass-border: rgba(255,255,255,0.12);
+      --accent: #fff;
+      --muted: rgba(255,255,255,0.8);
+    }
+
+    /* Gradiente */
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(120deg, var(--bg1), var(--bg2), var(--bg3));
+      background-size: 600% 600%;
+      animation: gradientShift 12s ease infinite;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* container */
+    .wrap {
+      width: min(420px, 94%);
+      padding: 36px 20px 28px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px) saturate(120%);
+      -webkit-backdrop-filter: blur(10px) saturate(120%);
+      position: relative;
+      overflow: visible;
+      text-align: center;
+    }
+
+    /* Perfil */
+    .profile {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      margin: -80px auto 10px; /* overlap */
+      border: 4px solid rgba(255,255,255,0.12);
+      background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.03));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.36);
+    }
+    .profile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    h1 {
+      margin: 10px 0 6px;
+      font-size: 1.25rem;
+      color: var(--accent);
+      letter-spacing: 0.2px;
+    }
+    p.desc {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.3;
+      padding: 0 8px;
+    }
+
+    /* links column */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 0 12px;
+    }
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 18px 20px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--bg3);
+      background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(255,255,255,0.92));
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      transform: translateY(0);
+      transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+      font-size: 1rem;
+    }
+    .link-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.28);
+    }
+    .link-btn:active {
+      transform: translateY(-1px);
+    }
+
+    /* subtle icon */
+    .link-btn svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    /* small footer */
+    .footer {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.65);
+      margin-top: 16px;
+    }
+
+    /* responsive tweaks */
+    @media (max-width:420px) {
+      .profile {
+        width: 96px;
+        height: 96px;
+        margin-top: -68px;
+      }
+      .wrap { padding: 32px 18px 24px; }
+    }
+
+    /* decorative Nintendo inspired badge */
+    .n-badge {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      font-size: 0.78rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,0.06);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .n-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      background: var(--bg2);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap" role="main" aria-labelledby="profile-name">
+
+    <div class="profile" aria-hidden="false">
+      <img src="foto.jpg" alt="Foto de perfil" />
+    </div>
+
+    <h1 id="profile-name">Nintendo Brasil Wiki</h1>
+    <p class="desc">Preservando a história da Nintendo no Brasil.</p>
+
+    <nav class="links" aria-label="Links principais">
+      <a class="link-btn" href="https://nintendobrasilwiki.org/start" target="_blank" rel="noopener noreferrer">
+        <!-- Ícone externo -->
+        <svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Site oficial"
+             viewBox="0 0 24 24" width="1.2em" height="1.2em" fill="none"
+             stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 3h7v7"></path>
+          <path d="M10 14L21 3"></path>
+          <path d="M21 21H3V3"></path>
+        </svg>
+        Visite nosso Site!
+      </a>
+
+      <a class="link-btn" href="https://x.com/nbrasil_wiki" target="_blank" rel="noopener noreferrer">
+        <!-- Ícone Twitter/X genérico (pássaro) -->
+        <svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Twitter / X"
+             viewBox="0 0 24 24" width="1.2em" height="1.2em" fill="currentColor">
+          <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.4.36a9.06 9.06 0 0 1-2.88 1.1A4.52 4.52 0 0 0 16.11 0c-2.5 0-4.52 2-4.52 4.49 0 .35.04.7.11 1.03A12.94 12.94 0 0 1 3.15.84a4.49 4.49 0 0 0-.61 2.26c0 1.56.8 2.94 2 3.75A4.48 4.48 0 0 1 .9 6.1v.05c0 2.18 1.55 4 3.61 4.41a4.52 4.52 0 0 1-2.05.08c.58 1.79 2.24 3.1 4.21 3.14A9.06 9.06 0 0 1 0 19.54a12.8 12.8 0 0 0 6.95 2.04c8.34 0 12.9-6.84 12.9-12.77 0-.2 0-.39-.01-.58A9.18 9.18 0 0 0 23 3z"/>
+        </svg>
+        X / Twitter
+      </a>
+
+      <a class="link-btn" href="https://bsky.app/profile/nintendowikibrasil.bsky.social" target="_blank" rel="noopener noreferrer">
+        <!-- Ícone genérico "nuvem" -->
+        <svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bluesky"
+             viewBox="0 0 24 24" width="1.2em" height="1.2em" fill="none"
+             stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17.5 19a4.5 4.5 0 0 0 0-9 6 6 0 0 0-11.3 2A4 4 0 0 0 6.5 19h11z"/>
+        </svg>
+        Bluesky
+      </a>
+
+      <a class="link-btn" href="https://nintendobrasilwiki.org/parceiros.html" target="_blank" rel="noopener noreferrer">
+        <!-- Ícone genérico "usuários / comunidade" -->
+        <svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Parceiros"
+             viewBox="0 0 24 24" width="1.2em" height="1.2em" fill="none"
+             stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M7 21v-2a4 4 0 0 1 3-3.87"></path>
+          <path d="M12 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"></path>
+          <path d="M20 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"></path>
+        </svg>
+        Conheça nossos parceiros!
+      </a>
+    </nav>
+
+    <div class="footer">
+      Caixas, manuais, comerciais, tudo sobre o que Nintendo fez oficialmente em nosso país, catalogado num só lugar!
+    </div>
+  </main>
+</body>
+</html>
